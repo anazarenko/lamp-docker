@@ -12,7 +12,7 @@ services:
     volumes:
       - ./sites:/etc/nginx/conf.d
       - ./conf/nginx.conf:/etc/nginx/nginx.conf
-			- ./logs/nginx/:/var/log/nginx
+      - ./logs/nginx/:/var/log/nginx
     volumes_from:
       - code
 
