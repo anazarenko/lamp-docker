@@ -24,20 +24,22 @@ services:
 
   mysql:
     image: mysql
+    restart: always
     ports:
       - "33061:3306"
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      TZ: "Europe/Kiev"
+      MYSQL_ROOT_PASSWORD: rootpwd
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
       - mysql
     environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: rootpwd
     ports:
     - '8181:80'
 
